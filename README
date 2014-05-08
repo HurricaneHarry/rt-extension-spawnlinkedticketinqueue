@@ -25,6 +25,13 @@ INSTALLATION
             'RT::Extension::SpawnLinkedTicketInQueue',
         );
 
+    Then, if you want a specific ticket link relationship type preselected, you
+    make an entry into the configuration etc/RT_SiteConfig.pm.  The available
+    link type names are how tickets can be related to each other 
+    (depends on/depended on by/parents/children/refers to/referred to by):
+
+        Set($SpawnTicketInQueueLinkDefault => 'Children');
+
     Flush mason cache:
 
         rm -rf /opt/rt3/var/mason_data/obj

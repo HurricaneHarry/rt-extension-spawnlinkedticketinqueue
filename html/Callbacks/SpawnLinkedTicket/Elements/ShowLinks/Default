@@ -54,12 +54,12 @@
 <input type="hidden" name="CloneTicket" value="<% $Object->id %>">
 <input type="submit" value="<&|/l&>Create</&>" name="SpawnLinkedTicket">
 <select name="LinkType">
-<option value="DependsOn-new"><% loc('Depends on') %></option>
-<option value="new-DependsOn"><% loc('Depended on by') %></option>
-<option value="MemberOf-new"><% loc('Parents') %></option>
-<option value="new-MemberOf"><% loc('Children') %></option>
-<option value="RefersTo-new"><% loc('Refers to') %></option>
-<option value="new-RefersTo"><% loc('Referred to by') %></option>
+<option value="DependsOn-new" <% (lc(RT->Config->Get('SpawnTicketInQueueLinkDefault')) eq 'depends on' ? 'selected' : '') %>><% loc('Depends on') %></option>
+<option value="new-DependsOn" <% (lc(RT->Config->Get('SpawnTicketInQueueLinkDefault')) eq 'depended on by ? 'selected' : '') %>><% loc('Depended on by') %></option>
+<option value="MemberOf-new" <% (lc(RT->Config->Get('SpawnTicketInQueueLinkDefault')) eq 'parents' ? 'selected' : '') %>><% loc('Parents') %></option>
+<option value="new-MemberOf" <% (lc(RT->Config->Get('SpawnTicketInQueueLinkDefault')) eq 'children' ? 'selected' : '') %>><% loc('Children') %></option>
+<option value="RefersTo-new" <% (lc(RT->Config->Get('SpawnTicketInQueueLinkDefault')) eq 'refers to' ? 'selected' : '') %>><% loc('Refers to') %></option>
+<option value="new-RefersTo" <% (lc(RT->Config->Get('SpawnTicketInQueueLinkDefault')) eq 'referred to by' ? 'selected' : '') %>><% loc('Referred to by') %></option>
 </select>
 <&|/l&>Ticket in</&>
 <& /Elements/SelectQueue, ShowNullOption => 0, Name => 'CloneQueue' &>
